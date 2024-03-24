@@ -1,11 +1,17 @@
-import './App.css'
-import { Resturants } from './components/Resturants'
+import './App.css';
+import { restaurants } from '../materials/mock';
+import Restaurant from './components/restaurant/Restaurant';
+import Layout from './components/layout/Layout';
 
 function App() {
   return (
-    <>
-      <Resturants/>
-    </>
+    <Layout>
+      {restaurants.map(restaurant=>(
+        <div key={restaurant.id}>
+          <Restaurant  restaurant={restaurant}/>
+        </div>
+      ))}
+    </Layout>
   )
 }
 
