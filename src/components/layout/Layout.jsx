@@ -4,7 +4,7 @@ const Layout = ({children}) => {
     <div>
         <header>header</header> 
         <div>{children}</div>
-        <footer>Footer</footer>
+        <footer style={{position: 'absolute', bottom: '50px'}}>Footer</footer>
     </div>
   )
 }

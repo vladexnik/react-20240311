@@ -1,16 +1,30 @@
 import './App.css';
 import { restaurants } from '../materials/mock';
-import Restaurant from './components/restaurant/Restaurant';
 import Layout from './components/layout/Layout';
+import { useState, } from 'react';
+import RestaurantTabs from './components/restaurant-tabs/restaurant-tabs';
+import Restaurant from './components/restaurant/Restaurant';
+
+
+const getSavedCurrentRestaurantIndex=()=>{
+  return Number(localStorage.getItem('currentRestaurantIndex'));
+}
 
 function App() {
+
+  const [currentRestaurantIndex,setCurrentRestaurantIndex]=useState(getSavedCurrentRestaurantIndex);
+  const currentRestaurant=restaurants[currentRestaurantIndex];
+  
+ 
+
   return (
     <Layout>
-      {restaurants.map(restaurant=>(
-        <div key={restaurant.id}>
-          <Restaurant  restaurant={restaurant}/>
-        </div>
-      ))}
+      <RestaurantTabs
+        restaurants={restaurants}
+        onTabClick={setCurrentRestaurantIndex}
+        currentIndex={currentRestaurantIndex}
+      />
+      {currentRestaurant && <Restaurant restaurant={currentRestaurant} />}
     </Layout>
   )
 }
