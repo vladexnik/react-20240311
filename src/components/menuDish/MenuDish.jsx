@@ -1,16 +1,17 @@
 
-const MenuItem = ({menuItem}) => {
+const MenuDish = ({menuDish}) => {
       
-    const {name, ingredients, price}=menuItem;
+    const {name, ingredients, price}=menuDish;
     
     return (
         <>
-            <p>{name}: {price}</p>
+            <p>{name}: {price}$</p>
             {ingredients.map(ingredient=>(
                     <li key={ingredient}>{ingredient}</li>
             ))}
+            <hr/>
         </>
     )
 }
 
-export default MenuItem
+export default MenuDish

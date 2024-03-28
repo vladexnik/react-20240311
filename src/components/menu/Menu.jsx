@@ -1,5 +1,5 @@
 // import React from 'react'
-import MenuItem from '../menuItem/MenuItem';
+import MenuDish from '../menuDish/MenuDish';
 
 const Menu = ({ menu }) => {
     
@@ -9,9 +9,10 @@ const Menu = ({ menu }) => {
 
     return (
         <div>
-            {menu.map(menuItem=>(
-                <div key={menuItem.id}>
-                    <MenuItem menuItem={menuItem}/>
+            <h3>Menu</h3>
+            {menu.map(menuDish=>(
+                <div key={menuDish.id}>
+                    <MenuDish menuDish={menuDish}/>
                 </div>
             ))}
         </div>
