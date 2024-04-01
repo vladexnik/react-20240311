@@ -1,21 +1,20 @@
 import { useState } from "react";
 
-const MenuDish = ({menuDish}) => {
+const Dish = ({dish}) => {
       
-    const {name, ingredients, price}=menuDish;
+    const {name, ingredients, price}=dish;
     const [count, setCount]=useState(0);
-
-    const calc=(num)=>{
+``
+    const calcCountDish=(num)=>{
         setCount(count=> count+num);
-        
     }
 
     return (
         <>  
             <div>
-                <button onClick={()=> calc(-1)} disabled={count === 0}>-</button>
+                <button onClick={()=> calcCountDish(-1)} disabled={count === 0}>-</button>
                 <span>{count}</span>
-                <button onClick={()=> calc(+1)} disabled={count === 10}>+</button>
+                <button onClick={()=> calcCountDish(+1)} disabled={count === 10}>+</button>
             </div>
             <p>{name}: {price}$</p>
             {ingredients.map(ingredient=>(
@@ -26,4 +25,4 @@ const MenuDish = ({menuDish}) => {
     )
 }
 
-export default MenuDish
+export default Dish;

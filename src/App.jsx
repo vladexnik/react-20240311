@@ -9,19 +9,21 @@ import Restaurant from './components/restaurant/Restaurant';
 const getSavedCurrentRestaurantIndex=()=>{
   return Number(localStorage.getItem('currentRestaurantIndex'));
 }
+const setCurrentRestaurantIndexStorage = (index) => {
+        localStorage.setItem("currentRestaurantIndex", index.toString())
+}
 
 function App() {
 
   const [currentRestaurantIndex,setCurrentRestaurantIndex]=useState(getSavedCurrentRestaurantIndex);
   const currentRestaurant=restaurants[currentRestaurantIndex];
   
- 
-
   return (
     <Layout>
       <RestaurantTabs
         restaurants={restaurants}
         onTabClick={setCurrentRestaurantIndex}
+        onClick={setCurrentRestaurantIndexStorage(currentRestaurantIndex)}
         currentIndex={currentRestaurantIndex}
       />
       {currentRestaurant && <Restaurant restaurant={currentRestaurant} />}
