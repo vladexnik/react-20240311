@@ -1,4 +1,4 @@
-import useCount from "../hooks/calc-countDish";
+import useCount from "../hooks/calc-count";
 
 const Dish = ({dish}) => {
       
