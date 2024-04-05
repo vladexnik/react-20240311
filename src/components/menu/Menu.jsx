@@ -1,5 +1,7 @@
 // import React from 'react'
 import Dish from '../dish/Dish';
+import './styles.scss';
+
 
 const Menu = ({ menu }) => {
     
@@ -8,8 +10,7 @@ const Menu = ({ menu }) => {
     }
 
     return (
-        <div>
-            <h3>Menu</h3>
+        <div className='menu'>
             {menu.map(dish=>(
                     <Dish key={dish.id} dish={dish}/>
             ))}

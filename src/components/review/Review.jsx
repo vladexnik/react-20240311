@@ -15,4 +15,4 @@ const Review = ({review}) => {
     )
 }
 
-export default Review
+export default Review;

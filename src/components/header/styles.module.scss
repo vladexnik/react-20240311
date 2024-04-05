@@ -1,0 +1,53 @@
+.header {
+    background-color: rgb(255, 255, 255);
+    padding: 10px 0;
+    color: black;
+}
+
+.dark .menuitem a:hover{
+    border-bottom: 2px solid rgb(255, 255, 255);
+}
+.dark, .dark a  {
+    background-color: black;
+    color: white;
+}
+
+.header .container {
+    max-width: 1200px;
+    padding: 0 4rem;
+    display: flex;
+    
+}
+
+.menulist {
+    list-style: none;
+    display: flex;
+}
+
+.menuitem {
+    white-space: nowrap;
+    align-self: center;
+    margin-right: 58px;
+}
+
+.menuitem a:hover {
+    border-bottom: 2px solid rgb(0, 0, 0);
+}
+
+.username{
+    font-size: 18px;
+    position: absolute;
+    transform: translateY(-40px);
+}
+
+
+@media (max-width: 600px) {
+    .menuitem {
+        font-size: 14px;
+        margin-right: 18px;
+    }
+    .header .container {
+        padding: 0 1rem;
+
+    }
+}

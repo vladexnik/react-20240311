@@ -15,10 +15,9 @@ const Restaurant = ({ restaurant }) => {
         <>
             <h2>{name}</h2>
             <Menu menu={menu}/>
-            
+
             <h3>Reviews</h3>
             <Reviews reviews={reviews}/>
-            <hr/>
         </>
   )
 }
