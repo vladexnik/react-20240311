@@ -1,0 +1,62 @@
+.root{
+    box-sizing: border-box;
+    padding: 25px;
+    margin: 0;
+    background-color: aquamarine;
+    font:caption;
+}
+
+.disabled{
+    opacity: 0.2;
+    cursor:none;
+}
+
+.restaurant{
+    padding: 7px 10px;
+    background-color: rgb(255, 132, 0);
+    border: 1px solid white;
+    color: white;
+    border-radius: 15px;
+    margin-right: 25px;
+}
+.restaurant:hover{
+    cursor: pointer;
+}
+.restaurant:disabled{
+    opacity: 0.5;
+}
+
+.primary {
+    background-color: orangered;
+    color: white;
+    white-space: nowrap;
+}
+
+.secondary {
+    background-color: rgb(2, 204, 255);
+    color: black; 
+}
+
+.darkbutton {
+    background-color: rgb(103, 217, 255);
+    color: white;
+}
+
+.s {
+    margin: 10px;
+    font-size: 12px;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+.m {
+    margin: 10px;
+    font-size: 16px;
+    padding: 4px 4px;
+}
+
+.l {
+    margin: 10px;
+    font-size: 20px;
+    padding: 10px 10px;
+}

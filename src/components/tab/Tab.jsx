@@ -1,10 +1,16 @@
+import Button from "../button/button";
+
 export const Tab = ({ title, isActive, onClick }) => {
   return (
-    <button onClick={onClick} disabled={isActive} 
+    <Button 
+        viewVariant="restaurant"
+        size="l" 
+        onClick={onClick} 
+        disabled={isActive} 
     >
     
       {title}
-      {isActive && ' - Active'}
-    </button>
+      {isActive && ' restuarant'}
+    </Button>
   );
 };

@@ -1,10 +1,19 @@
+import Header from "../header/header";
+import Footer from "../footer/footer";
+import styles from './styles.module.scss';
+import { ThemeContext } from "../../contexts/theme";
+import { useContext } from "react";
 
 const Layout = ({children}) => {
+  const {theme}=useContext(ThemeContext);
+ 
   return (
-    <div>
-        <header>header</header> 
-        <div>{children}</div>
-        <footer style={{position: 'absolute', bottom: '50px'}}>Footer</footer>
+    <div className={theme === 'dark' ? styles.dark : styles.light}>
+        <Header/>    
+        <div className={styles.layout}>
+          {children}
+        </div>
+        <Footer/>
     </div>
   )
 }
