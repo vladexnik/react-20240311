@@ -3,16 +3,12 @@ import Dish from '../dish/Dish';
 import './styles.scss';
 
 
-const Menu = ({ menu }) => {
-    
-    if(!menu){
-        return null;
-    }
+const Menu = ({ dishIds }) => {
 
     return (
         <div className='menu'>
-            {menu.map(dish=>(
-                    <Dish key={dish.id} dish={dish}/>
+            {dishIds.map(id=>(
+                    <Dish key={id} dishId={id}/>
             ))}
         </div>
     )

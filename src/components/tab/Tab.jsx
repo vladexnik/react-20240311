@@ -1,6 +1,14 @@
+import { useSelector } from "react-redux";
 import Button from "../button/button";
 
-export const Tab = ({ title, isActive, onClick }) => {
+export const Tab = ({ restaurantId, isActive, onClick }) => {
+  
+  const restaurant=useSelector(state=> state.restaurant.entities[restaurantId])
+  
+  if(!restaurant){
+    return null;
+  }
+
   return (
     <Button 
         viewVariant="restaurant"
@@ -9,7 +17,7 @@ export const Tab = ({ title, isActive, onClick }) => {
         disabled={isActive} 
     >
     
-      {title}
+      {restaurant.name}
       {isActive && ' restuarant'}
     </Button>
   );

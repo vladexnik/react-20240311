@@ -1,14 +1,15 @@
 
 import Review from '../review/Review'
 
-const Reviews = ({ reviews }) => {
+const Reviews = ({ reviewIds }) => {
+
 
   return (
     <ul>
         
-        {reviews.map(review=>(
-            <li key={review.id}>
-                <Review review={review}/>
+        {reviewIds.map(reviewId=>(
+            <li key={reviewId}>
+                <Review reviewId={reviewId}/>
             </li>
         ))}
     </ul>

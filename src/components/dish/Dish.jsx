@@ -3,25 +3,26 @@ import Button from "../button/button";
 import styles from './styles.module.scss'
 import { UserContext } from "../../contexts/user";
 import { useContext } from "react";
+import { useSelector } from "react-redux";
 
-
-const Dish = ({dish}) => {
-      
-    const {name, ingredients, price,img}=dish;
-    const {count, increment, decrement}=useCount();
+const Dish = ({dishId}) => {
+    const dish=useSelector(state=> state.dish.entities[dishId])
     
+    const {name, ingredients, price, img}=dish;
+
+    const {count, increment, decrement}=useCount();
+
     const {user}=useContext(UserContext);
-    console.log(user);
 
     return (
         <div className={styles.root}>    
             <h3>{name}: {price}$</h3>
-            <img src={img} />
             <p>Ingredients:</p>
             <ul>{ingredients.map(ingredient=>(
                     <li key={ingredient}>{ingredient}</li>
             ))}
             </ul>
+            <img src={img} />
             {user ==='auth' && 
             <div>
                 <Button

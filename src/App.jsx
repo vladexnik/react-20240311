@@ -1,4 +1,3 @@
-import { restaurants } from '../materials/mock';
 import Layout from './components/layout/Layout';
 import { useState, } from 'react';
 import RestaurantTabs from './components/restaurant-tabs/restaurant-tabs';
@@ -7,7 +6,7 @@ import { ThemeContextProviderComponent } from './contexts/theme';
 import { UserContextProviderComponent } from './contexts/user';
 
 const getSavedCurrentRestaurantIndex=()=>{
-  return Number(localStorage.getItem('currentRestaurantIndex'));
+  return (localStorage.getItem("currentRestaurantIndex"));
 }
 const setCurrentRestaurantIndexStorage = (index) => {
         localStorage.setItem("currentRestaurantIndex", index.toString())
@@ -15,22 +14,18 @@ const setCurrentRestaurantIndexStorage = (index) => {
 
 function App() {
 
-  const [currentRestaurantIndex,setCurrentRestaurantIndex]=useState(getSavedCurrentRestaurantIndex);
-  const currentRestaurant=restaurants[currentRestaurantIndex];
+  const [currentRestaurantId,setCurrentRestaurantId]=useState(getSavedCurrentRestaurantIndex);
   
-
-
   return (
     <ThemeContextProviderComponent>
       <UserContextProviderComponent>
         <Layout>
             <RestaurantTabs
-              restaurants={restaurants}
-              onTabClick={setCurrentRestaurantIndex}
-              onClick={setCurrentRestaurantIndexStorage(currentRestaurantIndex)}
-              currentIndex={currentRestaurantIndex}
+              currentRestaurantId={currentRestaurantId}
+              onTabClick={setCurrentRestaurantId}
+              onClick={setCurrentRestaurantIndexStorage(currentRestaurantId)}
             />
-            {currentRestaurant && <Restaurant restaurant={currentRestaurant} />}
+            {currentRestaurantId && <Restaurant restaurantId={currentRestaurantId} />}
         </Layout>
       </UserContextProviderComponent>
     </ThemeContextProviderComponent>
