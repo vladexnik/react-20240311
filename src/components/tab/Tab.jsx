@@ -1,9 +1,10 @@
 import { useSelector } from "react-redux";
 import Button from "../button/button";
+import { selectRestaurantById } from "../../redux/entities/restaurant/selectors";
 
 export const Tab = ({ restaurantId, isActive, onClick }) => {
   
-  const restaurant=useSelector(state=> state.restaurant.entities[restaurantId])
+  const restaurant=useSelector(state=> selectRestaurantById(state, restaurantId))
   
   if(!restaurant){
     return null;

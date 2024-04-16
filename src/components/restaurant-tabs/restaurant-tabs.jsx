@@ -2,10 +2,11 @@
 import { useSelector } from "react-redux"
 import { Tab } from "../tab/Tab"
 import styles from './style.module.scss'
+import { selectRestaurantIds } from "../../redux/entities/restaurant/selectors"
 
 const RestaurantTabs = ({currentRestaurantId, onTabClick, }) => {
     
-    const restaurantIds=useSelector(state=> state.restaurant.ids)
+    const restaurantIds=useSelector(selectRestaurantIds);
 
     return (
         <div className={styles.root}>
