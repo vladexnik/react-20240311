@@ -22,7 +22,7 @@ const Restaurant = ({ restaurantId }) => {
         <div>
             <h2>{name}</h2>
             <img src={img} style={{ width: '300px', height: '300px', margin: '20px auto'}}/>
-            <Menu dishIds={menu}/>
+            <Menu dishIds={menu} restaurantId={restaurantId}/>
 
             <h3>Reviews</h3>
             <Reviews reviewIds={reviews} restaurantId={restaurantId}/>

@@ -4,6 +4,10 @@ import './styles.scss';
 
 
 const Menu = ({ dishIds }) => {
+    
+    // console.log(dishIds);
+    
+
 
     return (
         <div className='menu'>

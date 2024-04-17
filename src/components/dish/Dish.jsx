@@ -11,11 +11,16 @@ import { selectDishAmount } from "../../redux/ui/cart/selectors";
 const Dish = ({dishId}) => {
 
     const dish=useSelector(state=> selectDishById(state, dishId));
-    const dispatch=useDispatch();
     const amount=useSelector(state=> selectDishAmount(state, dishId));
+    const dispatch=useDispatch();
+
+    const {user}=useContext(UserContext);
+
+    if(!dish){
+        return <p>Loading...</p>;
+    }
 
     const {name, ingredients, price}=dish;
-    const {user}=useContext(UserContext);
 
     const increment=()=> dispatch(incrementDish(dishId));
     const decrement=()=> dispatch(decrementDish(dishId));
@@ -24,7 +29,7 @@ const Dish = ({dishId}) => {
         <div className={styles.root}>    
             <h3>{name}: {price}$</h3>
             <p>Ingredients:</p>
-            <ul>{ingredients.map(ingredient=>(
+            <ul>{ingredients?.map(ingredient=>(
                     <li key={ingredient}>{ingredient}</li>
             ))}
             </ul>

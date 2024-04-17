@@ -15,7 +15,7 @@ const Reviews = ({  restaurantId }) => {
 
     const reviewIds=useSelector(state=> selectRestaurantReviewIds(state, restaurantId)) || [];
     console.log(reviewIds);
-  return (
+    return (
     <ul>
         
         {reviewIds.map(reviewId=>(

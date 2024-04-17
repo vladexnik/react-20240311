@@ -6,6 +6,8 @@ import { ThemeContextProviderComponent } from './contexts/theme';
 import { UserContextProviderComponent } from './contexts/user';
 import { useDispatch } from 'react-redux';
 import { getRestaurants } from './redux/entities/restaurant/thunk/get-restaurants';
+import { getDishes } from './redux/entities/dish/thunks/get-dishes';
+import { getUsers } from './redux/entities/user/thunks/get-users';
 
 const getSavedCurrentRestaurantIndex=()=>{
   return (localStorage.getItem("currentRestaurantIndex"));
@@ -21,6 +23,8 @@ function App() {
 
   useEffect(()=>{
     dispatch(getRestaurants());
+    dispatch(getDishes());
+    dispatch(getUsers());
   },[dispatch])
 
 

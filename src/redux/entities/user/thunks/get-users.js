@@ -1,11 +1,11 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { selectDishIds } from '../selectors';
+import { selectUserIds } from '../selectors';
 
 
-export const getDishes=createAsyncThunk(
-    "dish/getDishes",
+export const getUsers=createAsyncThunk(
+    "user/getUsers",
     async ( _, {rejectedWithValue}) => {
-        const response=await fetch("http://localhost:3003/api/dishes");
+        const response=await fetch("http://localhost:3003/api/users");
         const result=await response.json();
 
         if(result.length===0){
@@ -16,6 +16,6 @@ export const getDishes=createAsyncThunk(
     },
     
     {
-        condition: (_, {getState })=> !selectDishIds(getState())?.length,
+        condition: (_, {getState })=> !selectUserIds(getState())?.length,
     }
 )
