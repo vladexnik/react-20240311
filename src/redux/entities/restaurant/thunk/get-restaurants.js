@@ -15,6 +15,7 @@ export const getRestaurants=createAsyncThunk(
         return result;
     },
      {
-        condition: (_, {getState })=> !selectRestaurantIds(getState())?.length,
+        condition: ({forceRefetch=false} ={}, {getState })=> 
+        forceRefetch || !selectRestaurantIds(getState())?.length,
     }
 )
