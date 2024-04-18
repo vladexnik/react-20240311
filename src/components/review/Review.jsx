@@ -1,16 +1,21 @@
 // import React from 'react'
+import {  useSelector } from "react-redux";
+import { selectReviewById } from "../../redux/entities/review/selectors";
+import { selectUserById } from "../../redux/entities/user/selectors";
 
-const Review = ({review}) => {
+// здесь искать
+const Review = ({reviewId}) => {
+    
+    const review=useSelector(state=> selectReviewById(state, reviewId))
+    const user=useSelector(state=> selectUserById(state, review?.userId))
 
     if(!review){
-        return null;
+        return <p>Loading...</p>;
     }
-
-    const { user, text, rating}=review;
-
+   
     return (
         <>
-            <p>{user}: `{text}` - {rating}</p> 
+            <p>{user.name}:  `{review?.text}` - {review?.rating}</p>
         </>
     )
 }
